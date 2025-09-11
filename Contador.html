@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contador</title>
+</head>
+<body>
+        <p>Contador: <span id="contador">0</span></p>
+        <button onclick="contar()">+1</button>
+        <button onclick="reiniciar()">Reiniciar</button>
+        <button onclick="descontar()">-1</button>
+        <h1>Historial</h1>
+        <p id="error"></p>
+        <ul id="historial"></ul>
+
+        <script>
+            let numeros=[];
+            let contador = 0;
+
+            function contar() {
+                contador++;
+                document.getElementById('contador').textContent = contador;
+
+                numeros.push(contador);
+                mostrarHistorial();
+            }
+
+            function mostrarHistorial() {
+                const lista = document.getElementById('historial');
+                lista.innerHTML = '';
+
+                numeros.forEach(num => {
+                    lista.innerHTML += `<li>${num}</li>`;
+                });
+            }
+
+
+            function reiniciar() {
+                contador = 0;
+                numeros = [];
+                document.getElementById('contador').textContent = contador;
+                mostrarHistorial();
+            }
+
+
+            function descontar() {
+                
+                document.getElementById('contador').textContent = contador;
+                const error = document.getElementById('error');
+                if (!contador==0) {
+                contador--;
+                numeros.pop(contador);
+                mostrarHistorial();    
+                } else {
+                    error.innerHTML = "El contador esta en 0";
+                }
+                
+            }
+
+
+
+
+
+        </script>
+
+
+</body>
+</html>

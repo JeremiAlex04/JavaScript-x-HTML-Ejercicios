@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contar Tareas</title>
+</head>
+<body>
+    <h1>Mis Tareas</h1>
+    <ul id="lista"></ul>
+    <input type="text" id="tarea" placeholder="Nueva tarea">
+    <button onclick="agregar()">Agregar</button>
+
+    <script>
+        let tareas = ["Aprendo en casa", "Reviso Apuntes"];
+        function mostrar() {
+            const lista = document.getElementById('lista');
+
+            lista.innerHTML = '';
+
+            for (let tr of tareas){
+                lista.innerHTML += `<li>${tr}</li>`;
+            }
+
+        }
+
+        function agregar() {
+            const input = document.getElementById('tarea');
+            const tarea = input.value.trim();
+
+            tareas.push(tarea);
+            input.value = '';
+            mostrar();
+        }
+        mostrar();
+
+    </script>
+
+
+
+
+</body>
+</html>

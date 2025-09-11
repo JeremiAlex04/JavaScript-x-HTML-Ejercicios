@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir mayuscula a minuscula</title>
+</head>
+<body>
+    <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Convetir Mayuscula / Minuscula</h1>
+    <label>Escribe una palabra: <input type="text" id="palabra"></label><br><br>
+    <button onclick="convMayus()" style="background-color: blue; color: aliceblue; width: 120px;">Mayuscula</button>
+    <button onclick="convMinus()" style="background-color: red; color: aliceblue; width: 120px;">Minuscula</button>
+    <button onclick="limpiar()" style="background-color: green; color: aliceblue; width: 120px;">Limpiar</button>
+    
+    <h2 style="color: rgb(32, 84, 0);">Resultado: <span id="resultado"></span></h2>
+
+    <script>
+        function convMayus(){
+            let palabra = document.getElementById("palabra").value;
+            document.getElementById("resultado").innerText = palabra.toUpperCase();
+        }
+
+        function convMinus(){
+            let palabra = document.getElementById("palabra").value;
+            document.getElementById("resultado").innerText = palabra.toLowerCase();
+        }
+
+        function limpiar(){
+            document.getElementById("palabra").value = "";
+            document.getElementById("resultado").innerText = "";
+        }
+
+
+
+    </script>
+
+
+    
+</body>
+</html>

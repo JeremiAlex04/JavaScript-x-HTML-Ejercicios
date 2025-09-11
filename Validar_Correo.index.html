@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validar Email</title>
+</head>
+<body>
+    <h1>Validar Correo</h1>
+    <label>Usuario: <input type="text" id="usuario"></label><br><br>
+    <label>Correo: <input type="email" id="correo"></label><br><br>
+    <button onclick="validar()">Validar</button>
+    <p id="error"></p>
+
+
+    <script>
+        function validar () {
+            const inputUsuario = document.getElementById('usuario');
+            const usuario = inputUsuario.value.trim();
+            const inputCorreo = document.getElementById('correo');
+            const email = inputCorreo.value.trim();
+            const error = document.getElementById('error'); 
+
+            const validar = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (validar.test(email) && usuario.length > 0) {
+                error.textContent = "Correo Valido";
+            } else {
+                error.textContent = "Correo Invalido";
+            }
+        }
+    </script>
+
+</body>
+</html>

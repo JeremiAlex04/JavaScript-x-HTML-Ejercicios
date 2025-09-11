@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e2</title>
+</head>
+
+<body>
+    <h1>Validar contraseña</h1>
+
+    <form id="form1">
+        <label>Usuario: <input type="text" name="usuario"></label><br><br>
+        <label>Contraseña: <input type="password" name="password"></label><br><br>
+        <button type="submit">Iniciar Sesion</button><br><br>
+        <p id="error1"></p>
+    </form>
+
+    <script>
+        document.getElementById("form1").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const nombre = this.usuario.value.trim();
+            const contraseña = this.password.value;
+            const error = document.getElementById("error1");
+
+            const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+
+            if (!regex.test(contraseña)) {
+                error.textContent = "Contraseña debil";
+            } else {
+                error.textContent = "Contraseña fuerte";
+                alert("contraseña segura");
+            }
+        });
+
+    </script>
+</body>
+
+</html>
